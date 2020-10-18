@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
     fontWeight:'bold'
   },
   creatorContainer:{
-    flexDirection: 'row'
+    flexDirection: 'row',
+    margin:10
   },
   creator:{
     color:'lightgray',
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   },
   button:{
     backgroundColor: '#1CD05D',
-    height:50,
+    height:55,
     width:150,
     borderRadius:50,
     justifyContent:'center',
