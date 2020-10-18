@@ -17,11 +17,14 @@ export type TabTwoParamList = {
 };
 
 export type Album = {
-    id: string;
-    imageUri: string;
-    artistsHeadline: string;
-}
+  id: string;
+  imageUri: string;
+  artistsHeadline: string;
+};
 
-export type AlbumScreen = {
-  
-}
+export type Song = {
+  id: string;
+  imageUri: string;
+  title: string;
+  artist: string;
+};
