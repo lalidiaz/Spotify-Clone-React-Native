@@ -1,1 +1,1 @@
-# Spotify-Clone-React-Native
+# Spotify-Clone-React-Native-TypeScript 🍓
