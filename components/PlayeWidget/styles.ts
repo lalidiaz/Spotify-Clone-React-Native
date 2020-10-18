@@ -7,12 +7,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom:79,
     backgroundColor: '#131313',
-    flexDirection: 'row',
     width:'100%',
     borderColor:'black',
-    borderWidth: 2,
-    alignItems:'center'
-
+    borderWidth: 2
+  },
+  row:{
+    flexDirection: 'row'
   },
   rightContainer:{
     flexDirection: 'row',
@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     alignItems:'center',
     width:100,
     justifyContent:'space-around'
-
   },
   image:{
     width:75,
@@ -37,9 +36,13 @@ const styles = StyleSheet.create({
   },
   title:{
     color:'white',
-    fontSize:18,
+    fontSize:10,
     fontWeight: 'bold',
     margin:10
+  },
+  progress:{
+    height:4, 
+    backgroundColor: '#bcbcbc'
   },
   artist:{
     color:'lightgray',
