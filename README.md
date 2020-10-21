@@ -1,11 +1,11 @@
 # FULLSTACK- Spotify-Clone-React-Native-TypeScript ⚡️
 
-Front end:
+▶︎ Front end:
 React native, Expo, TypeScript and React Navegation.
 Spotify ui, when you choose an album it will display it's songs.
 I used Expo-av to play the songs.
 
-Back-end:
+▶︎ Back-end:
 AWS Amplify, AWS AppSync and GraphQL. 
 I create my own database and fetch the data from there.
 
