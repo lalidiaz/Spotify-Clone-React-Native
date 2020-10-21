@@ -1,4 +1,4 @@
-# FULL-STACK- Spotify-Clone-React-Native-TypeScript ⚡️
+# FULLSTACK- Spotify-Clone-React-Native-TypeScript ⚡️
 
 Front end:
 React native, Expo, TypeScript and React Navegation.
