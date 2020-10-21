@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#131313',
     width:'100%',
     borderColor:'black',
-    borderWidth: 2
+    borderWidth: 2,
   },
   row:{
     flexDirection: 'row'
@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center',
     width:100,
-    justifyContent:'space-around'
+    justifyContent:'space-around',
+    paddingRight:25
   },
   image:{
     width:75,
@@ -36,9 +37,9 @@ const styles = StyleSheet.create({
   },
   title:{
     color:'white',
-    fontSize:10,
+    fontSize:16,
     fontWeight: 'bold',
-    margin:10
+    margin:5
   },
   progress:{
     height:4, 

@@ -1,23 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Text, Image, View, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { Feather, FontAwesome5 } from "@expo/vector-icons";
-import { Audio } from "expo-av";
 import { Sound } from "expo-av/build/Audio/Sound";
-
-const song = {
-  id: "1",
-  uri: "http://jPlayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
-  imageUri: "https://images-na.ssl-images-amazon.com/images/I/61F66QURFyL.jpg",
-  title: "Miaiw Tempered Song",
-  artist: "Agnes"
-};
+import { AppContext } from "../../AppContext";
+import { API, graphqlOperation } from "aws-amplify";
+import { getSong } from "../../graphql/queries";
 
 const PlayerWidget = () => {
+  const [song, setSong] = useState(null);
   const [sound, setSound] = useState<Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [duration, setDuration] = useState<number | null>(null);
   const [position, setPosition] = useState<number | null>(null);
+
+  const { songId } = useContext(AppContext);
+
+  useEffect(() => {
+    const fetchSong = async () => {
+      try {
+        const data = await API.graphql(
+          graphqlOperation(getSong, { id: songId })
+        );
+        setSong(data.data.getSong);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchSong();
+  }, [songId]);
 
   const onPlaybackStatusUpdate = (status) => {
     setIsPlaying(status.isPlaying);
@@ -38,8 +50,10 @@ const PlayerWidget = () => {
   };
 
   useEffect(() => {
-    playCurrentSong();
-  }, []);
+    if (song) {
+      playCurrentSong();
+    }
+  }, [song]);
 
   const onPlayPausePress = async () => {
     if (!sound) {
@@ -60,6 +74,10 @@ const PlayerWidget = () => {
     return (position / duration) * 100;
   };
 
+  if (!song) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <View style={[styles.progress, { width: `${getProgress()}%` }]} />
@@ -75,7 +93,7 @@ const PlayerWidget = () => {
             <TouchableOpacity onPress={onPlayPausePress}>
               <FontAwesome5
                 name={isPlaying ? "pause" : "play"}
-                size={24}
+                size={22}
                 color="white"
               />
             </TouchableOpacity>
